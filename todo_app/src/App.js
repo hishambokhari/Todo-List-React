@@ -8,7 +8,8 @@ function App() {
 
   const addTodo = (event) => {
     // this will fire off when we click the button
-    console.log('Im working')
+    console.log('Im working');
+    setTodos([...todos, input]);
   }
 
   return (
