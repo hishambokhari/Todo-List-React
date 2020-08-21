@@ -8,17 +8,19 @@ function App() {
 
   const addTodo = (event) => {
     // this will fire off when we click the button
-    console.log('Im working');
+    event.preventDefault(); // stops the refresh 
     setTodos([...todos, input]);
+    setInput('');
   }
 
   return (
     <div>
       <h1>Hello World</h1>
+      <form>
       <input value={input} onChange={event => setInput(event.target.value)}/>
-      <button onClick={addTodo}>Add Todo</button>  
-      
-
+      <button  type="submit" onClick={addTodo}>Add Todo</button>  
+      </form>
+  
       <ul>
         {todos.map(todo => (
           <li>{todo}</li>
