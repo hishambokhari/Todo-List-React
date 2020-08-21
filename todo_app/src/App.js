@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import {Button} from '@material-ui/core';
+
 
 
 function App() {
@@ -10,7 +12,7 @@ function App() {
     // this will fire off when we click the button
     event.preventDefault(); // stops the refresh 
     setTodos([...todos, input]);
-    setInput('');
+    setInput(''); // clear input field
   }
 
   return (
@@ -18,7 +20,10 @@ function App() {
       <h1>Hello World</h1>
       <form>
       <input value={input} onChange={event => setInput(event.target.value)}/>
-      <button  type="submit" onClick={addTodo}>Add Todo</button>  
+      <Button  disabled={!input} type="submit" onClick={addTodo} variant="contained" color="primary">
+        Add Todo
+      </Button>
+      {/* <button  >Add Todo</button>   */}
       </form>
   
       <ul>
